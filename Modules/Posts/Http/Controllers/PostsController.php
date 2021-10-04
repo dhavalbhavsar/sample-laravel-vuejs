@@ -35,7 +35,7 @@ class PostsController extends Controller
   
         Post::create($request->all());
   
-        return redirect()->back()
+        return redirect('/posts')
                     ->with('message', 'Post Created Successfully.');
     }
   
@@ -53,7 +53,7 @@ class PostsController extends Controller
   
         if ($request->has('id')) {
             Post::find($request->input('id'))->update($request->all());
-            return redirect()->back()
+            return redirect('/posts')
                     ->with('message', 'Post Updated Successfully.');
         }
     }
@@ -67,7 +67,7 @@ class PostsController extends Controller
     {
         if ($request->has('id')) {
             Post::find($request->input('id'))->delete();
-            return redirect()->back();
+            return redirect('/posts');
         }
     }
 }
